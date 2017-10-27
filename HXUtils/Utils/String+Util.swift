@@ -14,7 +14,7 @@ import UIKit
 
 extension String {
     
-    public static func isBlank(string str: String?) -> Bool {
+    public static func isBlank(_ str: String?) -> Bool {
         guard let str = str else { return true }
         
         if str.trimmingCharacters(in: CharacterSet.whitespaces).characters.count == 0 {
@@ -210,7 +210,7 @@ extension String {
 // MARK: -
 extension String {
     /// 将AttributedString样式分为2种，前后一致，中间不同
-    func attributed(from fromIndex: Int, to toIndex: Int, size: CGFloat, otherSize: CGFloat, color: UIColor, otherColor: UIColor) -> NSMutableAttributedString? {
+    fileprivate func attributed(from fromIndex: Int, to toIndex: Int, size: CGFloat, otherSize: CGFloat, color: UIColor, otherColor: UIColor) -> NSMutableAttributedString? {
         
         assert(fromIndex <= toIndex, "请确保fromIndex ≤ toIndex")
         guard fromIndex <= toIndex else {
@@ -247,7 +247,7 @@ extension String {
     }
     
     /// 将AttributedString样式分为3种，前中后都不同
-    func attributed(from fromIndex: Int, to toIndex: Int, frontSize: CGFloat, midSize:CGFloat, endSize: CGFloat, frontColor: UIColor, midColor: UIColor, endColor: UIColor) -> NSMutableAttributedString? {
+    fileprivate func attributed(from fromIndex: Int, to toIndex: Int, frontSize: CGFloat, midSize:CGFloat, endSize: CGFloat, frontColor: UIColor, midColor: UIColor, endColor: UIColor) -> NSMutableAttributedString? {
         
         assert(fromIndex <= toIndex, "请确保fromIndex ≤ toIndex")
         guard fromIndex <= toIndex else {
